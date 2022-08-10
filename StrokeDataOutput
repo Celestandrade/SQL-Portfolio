@@ -3,7 +3,7 @@
 /*** Author : Celest Andrade **************/
 /*****************************************/
 
--- Programming tools used: SQL (PostgreSQL & PgAdmin)
+-- Programming tools used: SQL (PostgreSQL & pgAdmin 4)
 -- Note: This public dataset was retrieved from Kaggle
 at https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
 
@@ -24,7 +24,7 @@ gender, age, various diseases, and smoking status. Each row in the data provides
 11) smoking_status: 'formerly smoked', 'never smoked', 'smokes', or 'unknown'
 12) stroke: 0 if the patient has not had a stroke, 1 if the patient has had a stroke
 
-- BEGIN SQL -
+---------- BEGIN SQL ----------
 
 /* Create Table */
 
@@ -170,7 +170,7 @@ FROM stroke_data
 WHERE stroke = 1
 GROUP BY age
 ORDER BY age_count DESC
-LIMIT 20;
+LIMIT 10;
 
 age | age_count
 -----+-----------
@@ -184,19 +184,24 @@ age | age_count
  68 |         9
  82 |         9
  63 |         9
- 77 |         8
- 59 |         8
- 58 |         7
- 71 |         7
- 72 |         6
- 75 |         6
- 61 |         6
- 54 |         6
- 69 |         6
- 70 |         6
 
-- The above query result is limited to 20 rows.
+- The above query result is limited to 10 rows.
 - We can see that patients with an age over 55 in the dataset are the majority that have had a stroke.
+
+SELECT count(age),
+(SELECT avg(age) FROM stroke_data) AS avg_age_all_patients,
+(SELECT avg(age) FROM stroke_data WHERE stroke = '0') AS avg_age_no_stroke,
+(SELECT avg(age) FROM stroke_data WHERE stroke = '1') AS avg_age_stroke
+FROM stroke_data;
+
+count | avg_age_all_patients |  avg_age_no_stroke  |   avg_age_stroke
+-------+----------------------+---------------------+---------------------
+ 5110 |  43.2266144814090020 | 41.9715449495988480 | 67.7281927710843373
+
+ - The average age of all of the patients in the dataset is about 43
+ - The average age of patients that have not had a stroke is about 42
+ - The average age of patients that have had a stroke is about 68
+ - These results prove that there is a correlation between age and stroke.
 
  /* Does BMI have an influence on stroke? */
 
@@ -222,4 +227,5 @@ count | avg_bmi_all_patients |  avg_bmi_no_stroke  |   avg_bmi_stroke
  - The average bmi of patients that have had a stroke is about 30.47
  - These results prove that there is a correlation between bmi and stroke.
 
- - END SQL - 
+---------- END SQL ----------
+
