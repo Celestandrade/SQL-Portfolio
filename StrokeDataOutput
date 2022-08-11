@@ -241,7 +241,7 @@ FROM stroke_data;
 
 total_count | stroke_count | bmi_underweight | bmi_ideal | bmi_overweight | bmi_obese
 -------------+--------------+-----------------+-----------+---------------+-----------
-       4909 |          209 |               1 |        35 |            75 |        98
+       4909 |          209 |               1 |        35 |            75  |        98
 
  - Note: The query result does not include the 201 null values of the total 5110 count of data.
  - Patients that have had a stroke are primarily in the overweight and obese category.
