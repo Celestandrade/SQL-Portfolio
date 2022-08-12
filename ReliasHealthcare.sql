@@ -1,10 +1,10 @@
 /**********************************************************/
-/*Script Name: Relias Healthcare Data Definition Language (DDL) Script*/
+/*Script Name: Relias Healthcare Sample Script*/
 /*Author: Celest Andrade*/
 /*********************************************************/
 
--- Note: Some of the data used in this DDL script was taken from the Relias --
--- Healthcare website. The provider hire data and salary data are not actual. --
+-- Note: Some of the data used in this script was taken from the Relias Healthcare website. 
+-- The provider hire data and salary data are not actual.
 
 /****************/
 /*Create Tables*/
@@ -128,7 +128,9 @@ provider_id | first_name  | last_name | title | facility_id | hire_date  | salar
          24 | Nathan      | Hadley    | MD    |         108 | 2021-10-01 | 149000
          25 | Charles     | Frye      | MD    |         108 | 2018-06-28 | 153000
 
-/ ************************* Queries for data exploration *************************/
+/*******************************/
+/*Queries for data exploration*/
+/*****************************/
 
 -- Query 01: Using DISTINCT to find unique values.
 
@@ -261,6 +263,3 @@ Kathy      | Richards  | NP    |  96000 | North Mississippi Medical Center Amory
 Michael    | Farmer    | DO    | 150000 | North Mississippi Medical Center Amory
 
 
-/***********************************************************************/
-/********************* END *********************************************/
-/***********************************************************************/
