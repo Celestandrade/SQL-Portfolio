@@ -1,3 +1,7 @@
+-- The data is collected from the following source: 
+-- https://data.cms.gov/provider-data/dataset/ct36-nrcq 
+-- Tools used: PostgreSQL & pgAdmin4
+
 CREATE TABLE MedicalEquipmentSuppliers (
 ProviderID INTEGER PRIMARY KEY, 
 AcceptsAssignment BOOLEAN,
